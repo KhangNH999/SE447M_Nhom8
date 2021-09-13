@@ -8,14 +8,19 @@ using System.Windows.Forms;
 
 namespace WinFormsApp_Coffee
 {
-    public partial class frmQuanlytaikhoan : Form
+    public partial class frmQuanlykhuyenmai : Form
     {
-        public frmQuanlytaikhoan()
+        public frmQuanlykhuyenmai()
         {
             InitializeComponent();
         }
 
-        private void btnThemdouong_Click(object sender, EventArgs e)
+        private void txtSocmnd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }
