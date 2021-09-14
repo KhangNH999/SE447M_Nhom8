@@ -8,19 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\CDIO4-Git\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\OneDrive\\Máy tính\\New folder\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
       "projectName": "WinFormsApp_Coffee",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\CDIO4-Git\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\CDIO4-Git\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\obj\\",
+      "projectPath": "C:\\Users\\ASUS\\OneDrive\\Máy tính\\New folder\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ASUS\\OneDrive\\Máy tính\\New folder\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +67,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
