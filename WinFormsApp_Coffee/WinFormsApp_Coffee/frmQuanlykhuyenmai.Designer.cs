@@ -29,19 +29,26 @@ namespace WinFormsApp_Coffee
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbbTrangthai = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.cbbTrangThai = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtNgaykt = new System.Windows.Forms.TextBox();
-            this.txtNgaybd = new System.Windows.Forms.TextBox();
+            this.dateNgaykt = new System.Windows.Forms.DateTimePicker();
+            this.dateNgaybd = new System.Windows.Forms.DateTimePicker();
             this.txtMadot = new System.Windows.Forms.TextBox();
             this.txtTendot = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvQuanlykhuyenmai = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnXemdotkm = new System.Windows.Forms.Button();
             this.btnXoadotkhuyenmai = new System.Windows.Forms.Button();
@@ -53,14 +60,17 @@ namespace WinFormsApp_Coffee
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cbbTrangthai
+            // cbbTrangThai
             // 
-            this.cbbTrangthai.FormattingEnabled = true;
-            this.cbbTrangthai.Location = new System.Drawing.Point(115, 220);
-            this.cbbTrangthai.Margin = new System.Windows.Forms.Padding(2);
-            this.cbbTrangthai.Name = "cbbTrangthai";
-            this.cbbTrangthai.Size = new System.Drawing.Size(200, 28);
-            this.cbbTrangthai.TabIndex = 14;
+            this.cbbTrangThai.FormattingEnabled = true;
+            this.cbbTrangThai.Items.AddRange(new object[] {
+            "Chưa áp dụng",
+            "Đang diễn ra"});
+            this.cbbTrangThai.Location = new System.Drawing.Point(115, 220);
+            this.cbbTrangThai.Margin = new System.Windows.Forms.Padding(2);
+            this.cbbTrangThai.Name = "cbbTrangThai";
+            this.cbbTrangThai.Size = new System.Drawing.Size(200, 28);
+            this.cbbTrangThai.TabIndex = 14;
             // 
             // label7
             // 
@@ -100,9 +110,9 @@ namespace WinFormsApp_Coffee
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.txtNgaykt);
-            this.panel3.Controls.Add(this.txtNgaybd);
-            this.panel3.Controls.Add(this.cbbTrangthai);
+            this.panel3.Controls.Add(this.dateNgaykt);
+            this.panel3.Controls.Add(this.dateNgaybd);
+            this.panel3.Controls.Add(this.cbbTrangThai);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
@@ -115,19 +125,23 @@ namespace WinFormsApp_Coffee
             this.panel3.Size = new System.Drawing.Size(318, 292);
             this.panel3.TabIndex = 10;
             // 
-            // txtNgaykt
+            // dateNgaykt
             // 
-            this.txtNgaykt.Location = new System.Drawing.Point(115, 168);
-            this.txtNgaykt.Name = "txtNgaykt";
-            this.txtNgaykt.Size = new System.Drawing.Size(200, 27);
-            this.txtNgaykt.TabIndex = 16;
+            this.dateNgaykt.CustomFormat = "dd/MM/yyyy";
+            this.dateNgaykt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateNgaykt.Location = new System.Drawing.Point(114, 171);
+            this.dateNgaykt.Name = "dateNgaykt";
+            this.dateNgaykt.Size = new System.Drawing.Size(202, 27);
+            this.dateNgaykt.TabIndex = 16;
             // 
-            // txtNgaybd
+            // dateNgaybd
             // 
-            this.txtNgaybd.Location = new System.Drawing.Point(115, 113);
-            this.txtNgaybd.Name = "txtNgaybd";
-            this.txtNgaybd.Size = new System.Drawing.Size(200, 27);
-            this.txtNgaybd.TabIndex = 15;
+            this.dateNgaybd.CustomFormat = "dd/MM/yyyy";
+            this.dateNgaybd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateNgaybd.Location = new System.Drawing.Point(115, 116);
+            this.dateNgaybd.Name = "dateNgaybd";
+            this.dateNgaybd.Size = new System.Drawing.Size(202, 27);
+            this.dateNgaybd.TabIndex = 15;
             // 
             // txtMadot
             // 
@@ -164,13 +178,70 @@ namespace WinFormsApp_Coffee
             // dgvQuanlykhuyenmai
             // 
             this.dgvQuanlykhuyenmai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQuanlykhuyenmai.Location = new System.Drawing.Point(5, 2);
+            this.dgvQuanlykhuyenmai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dgvQuanlykhuyenmai.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvQuanlykhuyenmai.Location = new System.Drawing.Point(0, 0);
             this.dgvQuanlykhuyenmai.Margin = new System.Windows.Forms.Padding(2);
             this.dgvQuanlykhuyenmai.Name = "dgvQuanlykhuyenmai";
             this.dgvQuanlykhuyenmai.RowHeadersWidth = 62;
             this.dgvQuanlykhuyenmai.RowTemplate.Height = 33;
-            this.dgvQuanlykhuyenmai.Size = new System.Drawing.Size(532, 285);
+            this.dgvQuanlykhuyenmai.Size = new System.Drawing.Size(541, 292);
             this.dgvQuanlykhuyenmai.TabIndex = 0;
+            this.dgvQuanlykhuyenmai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQuanlykhuyenmai_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaDot";
+            this.Column1.HeaderText = "Mã đợt km";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenDot";
+            this.Column2.HeaderText = "Tên đợt km";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "NgayBatDau";
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column3.HeaderText = "Ngày bắt đầu";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "NgayKetThuc";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column4.HeaderText = "Ngày kết thúc";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "TrangThai";
+            this.Column5.HeaderText = "Trạng thái";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
             // 
             // panel1
             // 
@@ -201,15 +272,17 @@ namespace WinFormsApp_Coffee
             this.btnXoadotkhuyenmai.TabIndex = 2;
             this.btnXoadotkhuyenmai.Text = "Xóa đợt khuyến mãi";
             this.btnXoadotkhuyenmai.UseVisualStyleBackColor = true;
+            this.btnXoadotkhuyenmai.Click += new System.EventHandler(this.btnXoadotkhuyenmai_Click);
             // 
             // btnSuathongtin
             // 
-            this.btnSuathongtin.Location = new System.Drawing.Point(266, 3);
+            this.btnSuathongtin.Location = new System.Drawing.Point(266, 4);
             this.btnSuathongtin.Name = "btnSuathongtin";
             this.btnSuathongtin.Size = new System.Drawing.Size(125, 63);
             this.btnSuathongtin.TabIndex = 1;
             this.btnSuathongtin.Text = "Sửa đợt khuyến mãi";
             this.btnSuathongtin.UseVisualStyleBackColor = true;
+            this.btnSuathongtin.Click += new System.EventHandler(this.btnSuathongtin_Click);
             // 
             // btnThemdotkhuyenmai
             // 
@@ -244,7 +317,7 @@ namespace WinFormsApp_Coffee
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbbTrangthai;
+        private System.Windows.Forms.ComboBox cbbTrangThai;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -259,8 +332,13 @@ namespace WinFormsApp_Coffee
         private System.Windows.Forms.Button btnXoadotkhuyenmai;
         private System.Windows.Forms.Button btnSuathongtin;
         private System.Windows.Forms.Button btnThemdotkhuyenmai;
-        private System.Windows.Forms.TextBox txtNgaykt;
-        private System.Windows.Forms.TextBox txtNgaybd;
         private System.Windows.Forms.Button btnXemdotkm;
+        private System.Windows.Forms.DateTimePicker dateNgaykt;
+        private System.Windows.Forms.DateTimePicker dateNgaybd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

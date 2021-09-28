@@ -141,5 +141,10 @@ namespace WinFormsApp_Coffee
                 }
             }
         }
+
+        private void frmQuanlyban_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
