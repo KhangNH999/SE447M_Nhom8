@@ -149,6 +149,7 @@ namespace WinFormsApp_Coffee
             this.txtMadot.Name = "txtMadot";
             this.txtMadot.Size = new System.Drawing.Size(200, 27);
             this.txtMadot.TabIndex = 4;
+            this.txtMadot.Text = "ss";
             // 
             // txtTendot
             // 
