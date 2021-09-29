@@ -26,4 +26,3 @@ namespace WinFormsApp_Coffee.DTO
         }
     }
 }
-

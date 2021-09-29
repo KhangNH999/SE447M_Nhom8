@@ -219,7 +219,6 @@
       "path": "runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -235,7 +234,6 @@
       "path": "runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -251,7 +249,6 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -459,11 +456,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\CDIO4-Git\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\New folder\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
       "projectName": "WinFormsApp_Coffee",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\CDIO4-Git\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\New folder\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\CDIO4-Git\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\New folder\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -518,13 +515,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\DELL\\Desktop\\CDIO4-Git\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using WinFormsApp_Coffee.DAO;
-using WinFormsApp_Coffee.DTO;
 
 namespace WinFormsApp_Coffee
 {
@@ -21,7 +20,7 @@ namespace WinFormsApp_Coffee
         void loadKm()
         {
             dgvQuanlykhuyenmai.DataSource = QuanLyKhuyenMaiDAO.Instance.loadDanhSachKhuyenMai();
-            cbbTrangThai.SelectedIndex = 0;
+            cbbTrangthai.SelectedIndex = 0;
         }
         //phương thức xoaa dữ liệu có trong textbox, combobox, dataPicker
         void xoaDuLieu()
@@ -31,13 +30,13 @@ namespace WinFormsApp_Coffee
 
             dateNgaybd.Value = DateTime.Now;
             dateNgaykt.Value = DateTime.Now;
-            cbbTrangThai.SelectedIndex = 0;
+            cbbTrangthai.SelectedIndex = 0;
             txtMadot.Focus();
         }
         //Tạo sự kiện thêm đợt khuyến mãi
         private void btnThemdotkhuyenmai_Click(object sender, EventArgs e)
         {
-            if (txtMadot.Text == "" || txtTendot.Text == "" || cbbTrangThai.Text == "")
+            if (txtMadot.Text == "" || txtTendot.Text == "" || cbbTrangthai.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập thông tin đầy đủ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -49,7 +48,7 @@ namespace WinFormsApp_Coffee
                 DateTime ngaybd = dateNgaybd.Value;
                 DateTime ngaykt = dateNgaykt.Value;
 
-                int trangthai = cbbTrangThai.SelectedIndex;
+                int trangthai = cbbTrangthai.SelectedIndex;
                 if (QuanLyKhuyenMaiDAO.Instance.kiemTraKmTonTai(ma)) //Kiểm tra tồn tại
                 {
                     MessageBox.Show("Đợt khuyến mãi đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -88,12 +87,12 @@ namespace WinFormsApp_Coffee
             txtTendot.Text = dgvQuanlykhuyenmai.Rows[e.RowIndex].Cells[1].Value + "";
             dateNgaybd.Value = Convert.ToDateTime(dgvQuanlykhuyenmai.Rows[e.RowIndex].Cells[2].Value);
             dateNgaykt.Value = Convert.ToDateTime(dgvQuanlykhuyenmai.Rows[e.RowIndex].Cells[3].Value);
-            cbbTrangThai.SelectedItem = dgvQuanlykhuyenmai.Rows[e.RowIndex].Cells[4].Value + "";
+            cbbTrangthai.SelectedItem = dgvQuanlykhuyenmai.Rows[e.RowIndex].Cells[4].Value + "";
         }
 
         private void btnSuathongtin_Click(object sender, EventArgs e)
         {
-            if (txtMadot.Text == "" || txtTendot.Text == "" || cbbTrangThai.Text == "")
+            if (txtMadot.Text == "" || txtTendot.Text == "" || cbbTrangthai.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn khuyến mãi muốn sửa  !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -104,7 +103,7 @@ namespace WinFormsApp_Coffee
                 string tendot = txtTendot.Text;
                 DateTime ngaybd = dateNgaybd.Value;
                 DateTime ngaykt = dateNgaykt.Value;
-                int trangthai = cbbTrangThai.SelectedIndex;
+                int trangthai = cbbTrangthai.SelectedIndex;
                 if (QuanLyKhuyenMaiDAO.Instance.suaDotKhuyenMai(ma, tendot, ngaybd, ngaykt, trangthai))//Gọi phương thức sửa bàn từ QuanLyKhuyenMaiDAO
                 {
                     MessageBox.Show("Sửa thông tin thành công");
@@ -125,7 +124,7 @@ namespace WinFormsApp_Coffee
 
         private void btnXoadotkhuyenmai_Click(object sender, EventArgs e)
         {
-            if (txtMadot.Text == "" || txtTendot.Text == "" || cbbTrangThai.Text == "")
+            if (txtMadot.Text == "" || txtTendot.Text == "" || cbbTrangthai.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn khuyến mãi muốn xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -151,6 +150,5 @@ namespace WinFormsApp_Coffee
             }
 
         }
-
     }
 }

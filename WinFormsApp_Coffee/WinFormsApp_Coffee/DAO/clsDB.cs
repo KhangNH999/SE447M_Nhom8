@@ -13,7 +13,7 @@ namespace WinFormsApp_Coffee.DAO
         
         private static clsDB instance;
         //Tạo kết nối
-        private string conSTR = @"Data Source=DESKTOP-SNS7GAF\SQLEXPRESS;Initial Catalog=Quanlyquancoffee;Integrated Security=True";
+        private string conSTR = @"Data Source=.\SQLEXPRESS;Initial Catalog=Quanlyquancoffee;Integrated Security=True";
         //Thiết kế patern Singleton, biến Instance thể hiện một lớp duy nhất
         public static clsDB Instance
         {
