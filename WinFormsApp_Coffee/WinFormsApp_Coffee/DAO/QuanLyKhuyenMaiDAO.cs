@@ -50,7 +50,7 @@ namespace WinFormsApp_Coffee.DAO
         @trangthaidotkm int
         AS
             BEGIN
-                INSERT dbo.DOTKHUYENAMI (madotkm, tendotkm,  ngaybatdau, ngayketthuc, trangthaidotkm) VALUES ( @madotkm , @tendotkm , @ngaybatdau , @ngayketthuc , @trangthaidotkm)
+                INSERT dbo.DOTKHUYENMAI (madotkm, tendotkm,  ngaybatdau, ngayketthuc, trangthaidotkm) VALUES ( @madotkm , @tendotkm , @ngaybatdau , @ngayketthuc , @trangthaidotkm)
             END
          */
         public bool themDotKhuyenMai(int madotkm, string tendotkm, DateTime ngaybatdau, DateTime ngayketthuc, int trangthaidotkm)
