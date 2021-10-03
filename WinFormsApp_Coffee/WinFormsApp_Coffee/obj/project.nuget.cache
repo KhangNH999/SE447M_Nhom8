@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9wAgs9XwJkYOB6t7+D9TxszhA3GF9RKm1t9p/y3s7Rc0n215jfAQDni9pKccPuc5VtJYHeAaHURtR0oxx1Bx8A==",
+  "dgSpecHash": "Mdi5Ti8VQvH6r284cEyiY0D23RursvtFz7pFBK/1i2+CqMevtx3g4VG5LFH+F39rN5sqvakPJCJT+qDd5CLvKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\OneDrive\\Máy tính\\New folder (2)\\CS445K_TPM962K\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\Git_Nhom8\\SE447M_Nhom8\\WinFormsApp_Coffee\\WinFormsApp_Coffee\\WinFormsApp_Coffee.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

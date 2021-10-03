@@ -31,54 +31,54 @@ namespace WinFormsApp_Coffee
             LoadCategory();
             LoadComboboxTable(cbChuyenBan);
         }
-
+        //Phương thức phân quyền
         void PhanQuyen(int maloaitk)
         {
             adminToolStripMenuItem.Visible = maloaitk == 0;
         }
-
+        //Hiển thị form ql danh mục đồ uống
         private void quảnLýDanhMụcĐồUốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDmdouong f = new frmDmdouong();
             f.ShowDialog();
         }
-
+        //Hiển thị form ql đồ uống
         private void quảnLýĐồUốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDouong f = new frmDouong();
             f.ShowDialog();
         }
-
+        //Hiển thị form ql bàn
         private void quảnLýBànToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanlyban f = new frmQuanlyban();
             f.ShowDialog();
         }
-
+        //Hiển thị form ql thống kê
         private void quảnLýThốngKêToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanlythongke f = new frmQuanlythongke();
             f.ShowDialog();
         }
-
+        //Hiển thị form qltk
         private void quảnLýTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanlytaikhoan f = new frmQuanlytaikhoan();
             f.ShowDialog();
         }
-
+        //Hiển thị form qlkm
         private void quảnLýKhuyễnMãiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanlykhuyenmai f = new frmQuanlykhuyenmai();
             f.ShowDialog();
         }
-
+        //Hiển thị form qltk cá nhân
         private void quảnLýTàiKhoảnCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanlytaikhoancanhan f = new frmQuanlytaikhoancanhan(DnTaiKhoan);
             f.ShowDialog();
         }
-
+        //Tạo sự kiện thanh toán
         private void button1_Click(object sender, EventArgs e)
         {
             Ban table = lvBill.Tag as Ban;
@@ -95,7 +95,6 @@ namespace WinFormsApp_Coffee
                 f.TotalPrice = total;
                 f.ShowDialog();
             }
-            nmgiamgia.Value = 0;
             LoadBan();
         }
 
@@ -134,7 +133,7 @@ namespace WinFormsApp_Coffee
                 flpBan.Controls.Add(btn);
             }
         }
-
+        //Tạo sự kiện click bàn
         private void btn_Click(object sender, EventArgs e)
         {
             int maBan = ((sender as Button).Tag as Ban).MaBan;
@@ -143,7 +142,7 @@ namespace WinFormsApp_Coffee
             textBox1.Text = tenban;
             ShowBill(maBan);
         }
-
+        //Hiển thị bill trong listview
         void ShowBill(int id)
         {
             lvBill.Items.Clear();
@@ -160,20 +159,21 @@ namespace WinFormsApp_Coffee
             }
             total = totalPrice;
         }
+        //Load danh mục đồ uống
         void LoadCategory()
         {
             List<DMDoUong> listCategory = DanhmucdouongDAO.Instance.GetListCategory();
             cbDMDouong.DataSource = listCategory;
             cbDMDouong.DisplayMember = "tendanhmuc";
         }
-
+        //Load đồ uống trong combobox
         void LoadFoodListByCategoryID(int id)
         {
             List<Food> listFood = DouongDAO.Instance.GetFoodByCategoryID(id);
             cbDouong.DataSource = listFood;
             cbDouong.DisplayMember = "tendouong";
         }
-
+        //Tạo sự kiện danh mục đồ uống
         private void cbDMDouong_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = 0;
@@ -188,7 +188,7 @@ namespace WinFormsApp_Coffee
 
             LoadFoodListByCategoryID(id);
         }
-
+        //Tạo sự kiện đặt đồ uống
         private void btndatdouong_Click(object sender, EventArgs e)
         {
             Ban table = lvBill.Tag as Ban;
@@ -200,22 +200,21 @@ namespace WinFormsApp_Coffee
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.MaBan);
             int foodID = (cbDouong.SelectedItem as Food).Madouong;
             int count = (int)numupSL.Value;
-            double tlgiamgia = (double)nmgiamgia.Value;
 
-            if (idBill == -1)
+            if (idBill == -1) //Không có bill thì nó sẽ tạo bill mới, còn nếu có thì nó chỉ thêm món
             {
-                BillDAO.Instance.InsertBill(table.MaBan);
-                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), foodID, count, tlgiamgia);
+                BillDAO.Instance.InsertBill(dntaikhoan.MaTaiKhoan,table.MaBan);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), foodID, count);
             }
             else
             {
-                BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count, tlgiamgia);
+                BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
             }
 
             ShowBill(table.MaBan);
             LoadBan();
         }
-
+        //Tạo sự kiện xóa đồ uống
         private void button3_Click(object sender, EventArgs e)
         {
             Ban table = lvBill.Tag as Ban;
@@ -236,6 +235,28 @@ namespace WinFormsApp_Coffee
         {
             cbChuyenBan.DataSource = BanDAO.Instance.LoadDanhSachBan();
             cbChuyenBan.DisplayMember = "tenban";
+        }
+        //Tạo sự kiện chuyển bàn
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Ban table = lvBill.Tag as Ban;
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.MaBan);
+            int id1 = (lvBill.Tag as Ban).MaBan;
+
+            int id2 = (cbChuyenBan.SelectedItem as Ban).MaBan;
+            if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}", (lvBill.Tag as Ban).TenBan, (cbChuyenBan.SelectedItem as Ban).TenBan), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                if (idBill > 0)
+                {
+                    BanDAO.Instance.SwitchTable(id1, id2);
+                }
+                LoadBan();
+            }
+        }
+
+        private void flpBan_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
